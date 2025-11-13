@@ -3,7 +3,6 @@ import { AudioProcessor } from "./useAudioProcessor";
 import { useAudioVisualizerCircle } from "./useAudioVisualizerCircle";
 import { ChatMessage } from "./chatHistory";
 import { getCSSVariable } from "./cssUtil";
-import kyutaiLogo from "../assets/kyutai-logo-cropped.svg";
 
 const getFilename = () => {
   const now = new Date();
@@ -31,16 +30,6 @@ export function useRecordingCanvas({
   // Recording
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const [recordedChunks, setRecordedChunks] = useState<Blob[]>([]);
-
-  const logoImageRef = useRef<HTMLImageElement | null>(null);
-  const [logoLoaded, setLogoLoaded] = useState(false);
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = kyutaiLogo.src;
-    img.onload = () => setLogoLoaded(true);
-    logoImageRef.current = img;
-  }, []);
 
   useAudioVisualizerCircle(canvasRef, {
     chatHistory,
@@ -108,25 +97,8 @@ export function useRecordingCanvas({
     ctx.fillStyle = getCSSVariable("--color-background");
     ctx.fillRect(0, 0, size, size);
 
-    ctx.font = "bold 80px 'Frank Ruhl Libre'";
-    ctx.fillStyle = "white";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("Unmute.sh", size * 0.7, size * 0.1);
-
-    // Draw Kyutai logo underneath the text
-    if (logoLoaded && logoImageRef.current) {
-      // Position: center under the text, scale to fit nicely
-      const logoWidth = size * 0.25;
-      const logoHeight =
-        (logoImageRef.current.height / logoImageRef.current.width) * logoWidth;
-      const logoX = size * 0.745 - logoWidth / 2;
-      const logoY = size * 0.1 + 50; // 50px below the text, adjust as needed
-      ctx.drawImage(logoImageRef.current, logoX, logoY, logoWidth, logoHeight);
-    }
-
     animationFrameRef.current = requestAnimationFrame(animate);
-  }, [size, logoLoaded]);
+  }, [size]);
 
   // Initialize canvas and start animation
   useEffect(() => {

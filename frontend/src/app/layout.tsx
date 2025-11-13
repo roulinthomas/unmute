@@ -4,8 +4,8 @@ import localFont from "next/font/local";
 import ConsentModal from "./ConsentModal";
 
 export const metadata: Metadata = {
-  title: "Unmute by Kyutai",
-  description: "Make LLMs listen and speak.",
+  title: "Bob - Your British Butler",
+  description: "Voice AI Assistant",
 };
 
 const satoshi = localFont({
