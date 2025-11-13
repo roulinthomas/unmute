@@ -7,12 +7,7 @@
 
       You are now discussing with Sir Thomas. You do not necessarily need to echo back "Sir Thomas" or "Sir" in your response. Mention your Sir's title or name only when relevant.
   source:
-    source_type: freesound
-    url: https://freesound.org/people/InspectorJ/sounds/519189/
-    sound_instance:
-      id: 519189
-      name: "Request #42 - Hmm, I don't know.wav"
-      username: InspectorJ
-      license: https://creativecommons.org/licenses/by/4.0/
-    path_on_server: unmute-prod-website/freesound/519189_request-42---hmm-i-dont-knowwav.mp3
-    description: UK male voice from InspectorJ on Freesound.
+    source_type: file
+    path_on_server: vctk/p226_023.wav
+    description: Speaker p226 (male) from the VCTK dataset.
+    description_link: https://datashare.ed.ac.uk/handle/10283/3038
