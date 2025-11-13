@@ -45,7 +45,7 @@ services:
       - KYUTAI_STT_URL=ws://stt:8080
       - KYUTAI_TTS_URL=ws://tts:8080
       # OpenRouter configuration for Bob (Robert) the British butler
-      - KYUTAI_LLM_URL=https://openrouter.ai/api/v1
+      - KYUTAI_LLM_URL=https://openrouter.ai/api
       - KYUTAI_LLM_MODEL=moonshotai/kimi-k2-0905
       - KYUTAI_LLM_API_KEY=$OPENROUTER_API_KEY
       - NEWSAPI_API_KEY=$NEWSAPI_API_KEY
